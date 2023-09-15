@@ -1,0 +1,41 @@
+.add-form {
+  position: absolute;
+  left: 0;
+  top: -110px;
+  width: 100%;
+  transition: var(--transition);
+
+  h3 {
+    margin-bottom: 30px;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .actions {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    @media (max-width: 640px) {
+      flex-direction: column;
+      width: 270px;
+
+      input {
+        width: 100%;
+      }
+    }
+
+    &-control {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+
+      @media (max-width: 640px) {
+        width: 100%;
+      }
+    }
+  }
+}

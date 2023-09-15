@@ -1,0 +1,18 @@
+.stats {
+  position: relative;
+  z-index: 10;
+  box-shadow: var(--shadow-color) 0px 10px 10px 10px;
+  padding: 40px 0;
+  background-color: var(--bg-color);
+  top: 0;
+  transition: var(--transition);
+
+  p {
+    text-align: center;
+
+    span {
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+  }
+}

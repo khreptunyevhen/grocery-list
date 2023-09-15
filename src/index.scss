@@ -1,0 +1,208 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital@0;1&family=Mali:ital@0;1&family=Poppins:ital@0;1&family=Raleway:ital@0;1&display=swap");
+
+:root {
+  // --primary-color: #5c148c;
+  --danger-color: #dc143c;
+  --edit-color: #daa520;
+
+  --font-style: normal;
+  --font-family: "Poppins", sans-serif;
+  --transition: all 0.4s ease-in;
+}
+
+body[color-theme="light"] {
+  --font-color: #252525;
+  --window-color: #d9d9d9;
+  --bg-color: #fff;
+  --shadow-color: rgba(33, 35, 38, 0.1);
+}
+
+body[color-theme="dark"] {
+  --font-color: #fff;
+  --window-color: #424242;
+  --bg-color: #252525;
+  --shadow-color: rgba(255, 255, 255, 0.4);
+}
+
+@import "./components/styles/logo.scss";
+@import "./components/styles/packingList.scss";
+@import "./components/styles/form.scss";
+@import "./components/styles/editForm.scss";
+@import "./components/styles/item.scss";
+@import "./components/styles/stats.scss";
+@import "./components/styles/clearModal.scss";
+@import "./components/styles/settings.scss";
+@import "./components/styles/colorSwitcher.scss";
+@import "./components/styles/fontSwitcher.scss";
+@import "./components/styles/fontStyleSwitcher.scss";
+
+// Reset styles
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  font-family: var(--font-family);
+  font-style: var(--font-style);
+  cursor: pointer;
+}
+
+button:focus,
+select:focus,
+input:focus {
+  outline: 1px solid var(--primary-color);
+}
+
+select,
+input {
+  font-family: var(--font-family);
+  font-style: var(--font-style);
+  outline: none;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+option:checked {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  color: var(--font-color);
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  transition: var(--transition);
+  font-style: var(--font-style);
+  overflow-x: hidden;
+
+  h1,
+  span,
+  .settings svg {
+    transition: var(--transition);
+  }
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+  background-color: rgba(153, 50, 204, 0.1);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 5px;
+}
+
+.app {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 100%;
+
+  .container {
+    max-width: 1020px;
+    padding: 0 15px;
+    margin: 0 auto;
+  }
+
+  main {
+    position: relative;
+    width: 450px;
+    padding: 40px 0;
+    margin: 0 auto;
+
+    @media (max-width: 640px) {
+      width: 270px;
+    }
+
+    .empty-list {
+      position: relative;
+      bottom: -100%;
+      left: 50%;
+      transform: translate(-50%);
+      z-index: -100;
+      transition: var(--transition);
+    }
+
+    select {
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    input {
+      border-width: 1px;
+      padding: 10px;
+      border-radius: 10px;
+      outline: none;
+    }
+
+    input[type="checkbox"] {
+      appearance: none;
+      background-color: transparent;
+      width: 1em;
+      height: 1em;
+      border: 0.15em solid var(--primary-color);
+      border-radius: 50%;
+      display: grid;
+      place-content: center;
+
+      &::before {
+        content: "";
+        width: 0.55em;
+        height: 0.55em;
+        clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+        transform: scale(0);
+        transform-origin: bottom left;
+
+        background-color: var(--primary-color);
+        transition: var(--transition);
+      }
+
+      &:checked::before {
+        transform: scale(1);
+      }
+    }
+
+    button.control {
+      padding: 10px;
+      text-transform: uppercase;
+      background-color: var(--primary-color);
+      border-radius: 10px;
+      color: var(--bg-color);
+      transition: var(--transition);
+
+      &:hover {
+        box-shadow: var(--shadow-color) 0px 10px 20px,
+          var(--shadow-color) 0px 6px 6px;
+      }
+    }
+
+    select:hover,
+    input:hover {
+      box-shadow: var(--shadow-color) 0px 10px 20px,
+        var(--shadow-color) 0px 6px 6px;
+    }
+
+    .errors {
+      position: absolute;
+      top: -22px;
+      left: 0;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: crimson;
+    }
+  }
+}
