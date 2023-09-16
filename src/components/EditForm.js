@@ -74,7 +74,7 @@ const EditForm = ({
           )}
           <input
             type="text"
-            defaultValue={item.description}
+            defaultValue={newDescription}
             onChange={(e) => setNewDescription(e.target.value)}
           />
           <div className="selection">

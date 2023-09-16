@@ -76,7 +76,7 @@ export default function PackingList({
             onDeleteItem={onDeleteItem}
             onToggleItem={onToggleItem}
             item={item}
-            items={sortedItems}
+            items={items}
             units={units}
             setItems={setItems}
             setShowAddNewItem={setShowAddNewItem}
